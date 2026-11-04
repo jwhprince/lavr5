@@ -1,9 +1,92 @@
-import {notFound} from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
-import {directions} from '@/lib/content';
-import LeadForm from '@/components/LeadForm';
-export const dynamicParams=false;
-export function generateStaticParams(){return directions.map(d=>({slug:d.slug}))}
-export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const d=directions.find(d=>d.slug===slug);if(!d)return {};return {title:`${d.title} в Митино — пробный урок`,description:`${d.description} Школа VOLTA, Москва, Пятницкое шоссе, 25к1. Бесплатное индивидуальное знакомство с тренером.`,alternates:{canonical:`/directions/${slug}`}}}
-export default async function DirectionPage({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const d=directions.find(d=>d.slug===slug);if(!d)notFound();return <main id="main"><section className="section direction-detail"><div><nav className="breadcrumbs" aria-label="Хлебные крошки"><Link href="/">Главная</Link> / <Link href="/#directions">Направления</Link> / {d.title}</nav><span className="eyebrow">VOLTA · МИТИНО</span><h1>{d.title}<br/><em>в Митино</em></h1><p>{d.description}</p><a href="#trial" className="button">Попробовать бесплатно <span>↗</span></a></div><div className="detail-image"><Image src={`/images/${d.image}.webp`} alt={d.title+' в VOLTA'} fill priority sizes="(max-width:760px) 100vw,50vw"/></div></section><section className="section detail-body"><span className="eyebrow">{d.tag}</span><h2>Знакомство с направлением</h2><p>{d.details}</p><h2>Кому подойдёт</h2><p>{d.fit}</p><p>Занимаемся в Москве по адресу: Пятницкое шоссе, 25к1, рядом с метро «Митино». Расписание, стоимость и наличие мест уточняем при записи.</p></section><section id="trial" className="section trial"><div><span className="eyebrow">ПЕРВЫЙ УРОК — БЕСПЛАТНО</span><h2>Попробуйте.<br/><em>Почувствуйте.</em></h2><p className="trial-intro">Индивидуальное знакомство с тренером и обратная связь после занятия.</p><Link href="/#directions" className="text-link">Посмотреть все направления ↗</Link></div><LeadForm direction={d.title}/></section></main>}
+import { asset } from "@/lib/assets";
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { directions } from "@/lib/content";
+import LeadForm from "@/components/LeadForm";
+export const dynamicParams = false;
+export function generateStaticParams() {
+  return directions.map((d) => ({ slug: d.slug }));
+}
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const d = directions.find((d) => d.slug === slug);
+  if (!d) return {};
+  return {
+    title: `${d.title} в Митино — пробный урок`,
+    description: `${d.description} Школа VOLTA, Москва, Пятницкое шоссе, 25к1. Бесплатное индивидуальное знакомство с тренером.`,
+    alternates: { canonical: `/directions/${slug}` },
+  };
+}
+export default async function DirectionPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const d = directions.find((d) => d.slug === slug);
+  if (!d) notFound();
+  return (
+    <main id="main">
+      <section className="section direction-detail">
+        <div>
+          <nav className="breadcrumbs" aria-label="Хлебные крошки">
+            <Link href="/">Главная</Link> /{" "}
+            <Link href="/#directions">Направления</Link> / {d.title}
+          </nav>
+          <span className="eyebrow">VOLTA · МИТИНО</span>
+          <h1>
+            {d.title}
+            <br />
+            <em>в Митино</em>
+          </h1>
+          <p>{d.description}</p>
+          <a href="#trial" className="button">
+            Попробовать бесплатно <span>↗</span>
+          </a>
+        </div>
+        <div className={`detail-image detail-image-${d.slug}`}>
+          <Image
+            src={asset(`/images/${d.image}.webp`)}
+            alt={d.title + " в VOLTA"}
+            fill
+            preload
+            sizes="(max-width:760px) 100vw,50vw"
+          />
+        </div>
+      </section>
+      <section className="section detail-body">
+        <span className="eyebrow">{d.tag}</span>
+        <h2>Знакомство с направлением</h2>
+        <p>{d.details}</p>
+        <h2>Кому подойдёт</h2>
+        <p>{d.fit}</p>
+        <p>
+          Занимаемся в Москве по адресу: Пятницкое шоссе, 25к1, рядом с метро
+          «Митино». Расписание, стоимость и наличие мест уточняем при записи.
+        </p>
+      </section>
+      <section id="trial" className="section trial">
+        <div>
+          <span className="eyebrow">ПЕРВЫЙ УРОК — БЕСПЛАТНО</span>
+          <h2>
+            Попробуйте.
+            <br />
+            <em>Почувствуйте.</em>
+          </h2>
+          <p className="trial-intro">
+            Индивидуальное знакомство с тренером и обратная связь после занятия.
+          </p>
+          <Link href="/#directions" className="text-link">
+            Посмотреть все направления ↗
+          </Link>
+        </div>
+        <LeadForm direction={d.title} />
+      </section>
+    </main>
+  );
+}
