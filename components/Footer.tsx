@@ -1,3 +1,4 @@
+import ArrowIcon from "@/components/ArrowIcon";
 import Link from "next/link";
 export default function Footer() {
   return (
@@ -15,7 +16,7 @@ export default function Footer() {
           <br />
           м. Митино
         </p>
-        <Link href="/#trial">Записаться на знакомство ↗</Link>
+        <Link href="/#trial">Записаться на знакомство <ArrowIcon /></Link>
       </div>
       <div>
         <span className="eyebrow">КОНТАКТЫ · ДЕМО</span>

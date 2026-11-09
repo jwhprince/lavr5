@@ -1,3 +1,4 @@
+import ArrowIcon from "@/components/ArrowIcon";
 import { asset } from "@/lib/assets";
 import { notFound } from "next/navigation";
 import Image from "next/image";
@@ -46,7 +47,7 @@ export default async function DirectionPage({
           </h1>
           <p>{d.description}</p>
           <a href="#trial" className="button">
-            Попробовать бесплатно <span>↗</span>
+            Попробовать бесплатно <span><ArrowIcon /></span>
           </a>
         </div>
         <div className={`detail-image detail-image-${d.slug}`}>
@@ -82,7 +83,7 @@ export default async function DirectionPage({
             Индивидуальное знакомство с тренером и обратная связь после занятия.
           </p>
           <Link href="/#directions" className="text-link">
-            Посмотреть все направления ↗
+            Посмотреть все направления <ArrowIcon />
           </Link>
         </div>
         <LeadForm direction={d.title} />

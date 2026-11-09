@@ -1,4 +1,5 @@
 "use client";
+import ArrowIcon from "@/components/ArrowIcon";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -18,7 +19,7 @@ export default function LeadForm({
     >
       <div className="form-heading">
         <span className="eyebrow">ВАШ ПЕРВЫЙ ШАГ · ДЕМО</span>
-        <h3>Давайте знакомиться</h3>
+        <h3>Давай знакомиться</h3>
         <p>
           Скоро здесь можно будет выбрать направление и записаться на пробный
           урок.
@@ -57,7 +58,7 @@ export default function LeadForm({
         <Link href="/privacy">политика конфиденциальности</Link>.
       </p>
       <button className="button" type="submit">
-        Посмотреть, как это работает <span aria-hidden="true">↗</span>
+        Посмотреть, как это работает <span><ArrowIcon /></span>
       </button>
       <p className="form-status" role="status" aria-live="polite">
         {previewed

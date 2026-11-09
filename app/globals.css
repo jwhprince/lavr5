@@ -115,7 +115,7 @@ p {
 }
 .nav {
   display: flex;
-  gap: 32px;
+  gap: 24px;
   font-size: 12px;
 }
 .nav a:hover,
@@ -123,6 +123,9 @@ p {
   color: #a83759;
 }
 .header-cta {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
   border-bottom: 1px solid var(--wine);
   padding: 8px 0;
   font-size: 12px;
@@ -1576,4 +1579,103 @@ p {
   .ticker {
     padding-right: 0;
   }
+}
+
+/* Shared line icons stay consistent across platforms, including iOS. */
+.arrow-icon {
+  display: inline-block;
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: -0.2em;
+  flex-shrink: 0;
+}
+.button > span,
+.header-cta > span,
+.circle-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.button > span { font-size: 20px; }
+.header-cta .arrow-icon { width: 16px; height: 16px; }
+.text-link > .arrow-icon { margin-left: 4px; }
+.trial h2 .trial-next {
+  display: inline-block;
+  font-size: 0.82em;
+  margin-top: 8px;
+}
+.students { padding-top: 0; }
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 16px;
+}
+.album-grid figure { margin: 0; min-width: 0; }
+.album-photo {
+  display: block;
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  padding: 0;
+  border: 0;
+  background: var(--pink);
+  cursor: zoom-in;
+}
+.album-photo img { object-fit: contain; }
+.album-expand {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  background: var(--paper);
+  color: var(--wine);
+  font-size: 24px;
+  line-height: 1;
+}
+.album-grid figcaption { margin-top: 12px; font-size: 14px; color: var(--muted); }
+.album-dialog {
+  padding: 0;
+  border: 0;
+  width: min(92vw, 1000px);
+  max-width: 1000px;
+  max-height: 94vh;
+  max-height: 94dvh;
+  background: var(--paper);
+  color: var(--ink);
+}
+.album-dialog::backdrop { background: #210b1be6; }
+.album-viewer { position: relative; padding: 48px 16px 16px; }
+.album-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  color: var(--wine);
+  background: transparent;
+  font-size: 30px;
+  cursor: pointer;
+}
+.album-full-photo { position: relative; height: 65vh; height: 65dvh; }
+.album-full-photo img { object-fit: contain; }
+.album-controls { display: flex; gap: 16px; align-items: center; justify-content: space-between; margin-top: 16px; }
+.album-controls button { width: 48px; height: 48px; flex-shrink: 0; border: 1px solid var(--line); color: var(--wine); background: transparent; cursor: pointer; }
+.album-controls svg { width: 24px; height: 24px; vertical-align: middle; }
+.album-controls p { text-align: center; font-size: 14px; }
+.album-controls p span { display: block; font-size: 12px; margin-top: 4px; }
+@media (min-width: 761px) {
+  .album-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; }
+}
+@media (max-width: 760px) {
+  .button { gap: 16px; }
+  .header-cta { min-height: 44px; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .album-photo:hover .album-expand { background: var(--wine); color: var(--paper); }
+  .album-controls button:hover, .album-close:hover { background: var(--pink); }
 }

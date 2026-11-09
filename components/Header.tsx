@@ -1,5 +1,6 @@
 "use client";
 
+import ArrowIcon from "@/components/ArrowIcon";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -91,6 +92,7 @@ export default function Header() {
         <Link href="/#directions">Направления</Link>
         <Link href="/#about">О школе</Link>
         <Link href="/#founder">Тренер</Link>
+        <Link href="/#students">Ученики</Link>
         <Link href="/#contacts">Контакты</Link>
       </nav>
       <Link
@@ -98,7 +100,7 @@ export default function Header() {
         href="/#trial"
         onClick={() => setOpen(false)}
       >
-        Пробный урок <span>↗</span>
+        Пробный урок <span><ArrowIcon /></span>
       </Link>
     </header>
   );

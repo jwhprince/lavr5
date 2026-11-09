@@ -1,3 +1,5 @@
+import ArrowIcon from "@/components/ArrowIcon";
+import StudentAlbum from "@/components/StudentAlbum";
 import Ticker from "@/components/Ticker";
 import { asset } from "@/lib/assets";
 import Image from "next/image";
@@ -55,12 +57,12 @@ export default function Home() {
             Откройте себя в движении — вместе с VOLTA.
           </p>
           <a href="#trial" className="button">
-            Бесплатный пробный урок <span>↗</span>
+            Бесплатный пробный урок <span><ArrowIcon /></span>
           </a>
           <div className="hero-bottom">
             <span>Бальные танцы · Baby-dance · Латина</span>
             <a href="#directions" aria-label="Перейти к направлениям">
-              ↓
+              <ArrowIcon direction="down" />
             </a>
           </div>
         </div>
@@ -110,7 +112,7 @@ export default function Home() {
                   sizes="(max-width: 760px) 100vw, 33vw"
                 />
                 <span className="image-index">0{i + 1}</span>
-                <span className="circle-arrow">↗</span>
+                <span className="circle-arrow"><ArrowIcon /></span>
               </div>
               <span className="eyebrow">{d.subtitle}</span>
               <h3>{d.title}</h3>
@@ -178,7 +180,7 @@ export default function Home() {
           </span>
         </div>
         <div className="founder-copy">
-          <span className="eyebrow">03 / ЧЕЛОВЕК ЗА ИМЕНЕМ</span>
+          <span className="eyebrow">03 / ОСНОВАТЕЛЬ ШКОЛЫ</span>
           <h2>
             С опытом на паркете.
             <br />
@@ -212,7 +214,7 @@ export default function Home() {
             </li>
           </ul>
           <a className="text-link" href="#trial">
-            Познакомиться на пробном уроке ↗
+            Познакомиться на пробном уроке <ArrowIcon />
           </a>
         </div>
       </section>
@@ -245,7 +247,7 @@ export default function Home() {
               занятие в VOLTA.
             </p>
             <a href="#trial" className="text-link">
-              Попробовать вместе с нами ↗
+              Попробовать вместе с нами <ArrowIcon />
             </a>
           </div>
           <div className="film-player">
@@ -266,6 +268,16 @@ export default function Home() {
           <span>VOLTA В ДВИЖЕНИИ</span>
           <span>НАША ИСТОРИЯ — В КАЖДОМ ШАГЕ</span>
         </div>
+      </section>
+      <section id="students" className="students section">
+        <div className="section-heading">
+          <div>
+            <span className="eyebrow">05 / УЧЕНИКИ</span>
+            <h2>Наши ученики.<br /><em>Наша гордость.</em></h2>
+          </div>
+          <p>Занятия, выступления и маленькие победы.<br />Моменты из жизни нашей школы.</p>
+        </div>
+        <StudentAlbum />
       </section>
       <section className="invitation">
         <Image
@@ -295,7 +307,7 @@ export default function Home() {
                 data-word
                 style={{ "--word-index": 2 } as React.CSSProperties}
               >
-                Давайте
+                Давай
               </span>{" "}
               <span
                 data-word
@@ -311,17 +323,17 @@ export default function Home() {
             Приходите на бесплатный пробный урок.
           </p>
           <a className="button light" href="#trial">
-            Сделать первый шаг <span>↗</span>
+            Сделать первый шаг <span><ArrowIcon /></span>
           </a>
         </div>
       </section>
       <section id="trial" className="trial section">
         <div>
-          <span className="eyebrow">05 / ВАША ИСТОРИЯ НАЧИНАЕТСЯ ЗДЕСЬ</span>
+          <span className="eyebrow">06 / ВАША ИСТОРИЯ НАЧИНАЕТСЯ ЗДЕСЬ</span>
           <h2>
             Сегодня — знакомство.
             <br />
-            <em>Завтра — новая история.</em>
+            <em className="trial-next">Завтра — новая история.</em>
           </h2>
           <p className="trial-intro">
             Знакомство с танцем — без спешки
@@ -373,7 +385,7 @@ export default function Home() {
       </section>
       <section id="contacts" className="contacts section">
         <div>
-          <span className="eyebrow">06 / ВСТРЕТИМСЯ В VOLTA</span>
+          <span className="eyebrow">07 / ВСТРЕТИМСЯ В VOLTA</span>
           <h2>
             Танцы.
             <br />
@@ -393,7 +405,7 @@ export default function Home() {
             rel="noreferrer"
             className="text-link"
           >
-            Построить маршрут в Яндекс Картах ↗
+            Построить маршрут в Яндекс Картах <ArrowIcon />
           </a>
           <small>
             * Ориентир из материалов школы. Время зависит от выхода из метро и
@@ -412,7 +424,7 @@ export default function Home() {
             referrerPolicy="no-referrer-when-downgrade"
           />
           <a href={mapUrl} target="_blank" rel="noreferrer">
-            Пятницкое шоссе, 25к1 <span>↗</span>
+            Пятницкое шоссе, 25к1 <span><ArrowIcon /></span>
           </a>
         </div>
       </section>
